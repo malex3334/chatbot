@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>Chatbox</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <!-- chatbox window -->
+        <div class="chatbox">
+          <!-- top menu -->
+          <div id="first-section" class="topmenu flex-row">
+            <div class="topmenu__avatar"></div>
+            <div class="topmenu__name">Kazik Murowski</div>
+            <div class="topmenu__menu">
+              <ion-icon id="minmalizeBtn" name="remove-outline"> </ion-icon>
+              <ion-icon id="closeBtn" name="close-outline"> </ion-icon>
+            </div>
+          </div>
+          <!-- top end -->
+          <!-- chat display -->
+          <section id="middle-section" class="chat flex-column">
+            <div id="msg-box" class="messages-container"></div>
+          </section>
+
+          <!-- INPUTS SECTION -->
+          <section id="last-section" class="inputs">
+            <input
+              id="msg-input"
+              class="input"
+              type="text"
+              placeholder="Type your message..."
+            />
+
+            <button id="send" class="send">
+              <ion-icon class="icn-send" name="send-outline"></ion-icon>
+            </button>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+  <script src="script.js"></script>
+</html>
