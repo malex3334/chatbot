@@ -9,17 +9,48 @@ const closeBtnEl = document.getElementById("closeBtn");
 const middleSec = document.getElementById("middle-section");
 const lastSec = document.getElementById("last-section");
 const firstSec = document.getElementById("first-section");
+const botName = document.getElementById("name");
+const botAvatar = document.getElementById("avatar");
+const btnLeft = document.getElementById("left");
+const btnRight = document.getElementById("right");
+const firstBot = document.getElementById("0");
+const secondBot = document.getElementById("1");
+const thirdBot = document.getElementById("2");
+let botIndex = 0;
+let i = 0;
+
+const data = [
+  {
+    name: "Kazik Murowski",
+    avatar: "url(img/av1.jpg)",
+    chatavatar: "img/av1.jpg",
+    responsesArr: [
+      "Cześć! Co słychać?",
+      `U mnie ok, robię kurs JS. A Ty?`,
+      "Brzmi spoko! Co robisz w weekend?",
+      "Jestem na uczelni",
+      "Meuszę lecieć, trzymaj się!",
+    ],
+  },
+
+  {
+    name: "Ojosław Ojutkowski",
+    avatar: "url(img/Ojutek.jpg)",
+    chatavatar: "img/Ojutek.jpg",
+    responsesArr: [
+      "Cesc! jak sie masz?",
+      `Mam się super! aj sobie śpie a TY?`,
+      "Fajowo! a kiedy przyjdzies?",
+      "hurra! to ja czekam!",
+      "hm hm hm hmmmmmm  &#9835; &#9834; &#9835;",
+    ],
+  },
+];
 
 //TIMESTAMP
 const date = new Date();
 console.log(date.toTimeString().slice(0, 5));
 
-// const minutes = getMinutes();
-// const hours = getHours();
-
-// const timeStamp = function() {
-//   if ()
-// }
 //SOUNDS
 function playBeep() {
   const beep = new Audio("beep.mp3");
@@ -45,7 +76,6 @@ const responsesArr = [
   "Jestem na uczelni",
   "Meuszę lecieć, trzymaj się!",
 ];
-let i = 0;
 
 // INSERT OWN MSG
 const inserMsg = function () {
@@ -81,7 +111,7 @@ const insertReply = function () {
     "beforeend",
     `
   <div id="typing-animation" class="single-message-container flex-row--opposite showmsg">
-  <div class="chat__avatar"></div>
+  <img class="chat__avatar" src=${data[botIndex].chatavatar} />
   <div class="message-flex flex-column">
     <div id="typing-wave" class="chat__message opposite typing-wave"><span>.</span><span>.</span><span>.</span>
      
@@ -100,19 +130,17 @@ const insertReply = function () {
       "beforeend",
       `
     <div class="single-message-container flex-row--opposite showmsg" >
-    <div class="chat__avatar"></div>
+    <img class="chat__avatar" src=${data[botIndex].chatavatar} />
     <div class="message-flex flex-column">
     <div class="chat__timestamp">Sent ${curDate}</div>
       <div class="chat__message opposite">
-        ${responsesArr[i]}
+        ${data[botIndex].responsesArr[i]}
       </div>
     </div>
   </div>`
     );
     playBeep();
-    responsesArr[i++];
-    if (i > responsesArr.length - 1) i = 0;
-    newMessage.scrollTop = newMessage.scrollHeight;
+    responsesIncrement();
   }, 3000);
 };
 
@@ -148,8 +176,54 @@ miniBtnEl.addEventListener("click", () => {
   lastSec.classList.toggle("hide");
 });
 
-// closeBtnEl.addEventListener("click", () => {
-//   middleSec.classList.toggle("hide");
-//   lastSec.classList.toggle("hide");
-//   firstSec.classList.toggle("hide");
+const responsesIncrement = function () {
+  data[0].responsesArr[i++];
+  if (i > data[botIndex].responsesArr.length - 1) i = 0;
+  newMessage.scrollTop = newMessage.scrollHeight;
+};
+
+const updatePersonals = function () {
+  // const botChatAvatar = document.getElementById(".chat__avatar");
+  // botChatAvatar.style.backgroundImage = data[botIndex].chatavatar;
+
+  botName.innerHTML = data[botIndex].name;
+  botAvatar.style.backgroundImage = data[botIndex].avatar;
+
+  newMessage.innerHTML = "";
+  console.log((botName.innerHTML = data[botIndex].name));
+
+  i = 0;
+};
+
+/////////// FOR NEXT UPDATES
+// btnRight.addEventListener("click", () => {
+//   data[botIndex++];
+//   if (botIndex > data.length - 1) botIndex = 0;
+
+//   updatePersonals();
 // });
+
+// btnLeft.addEventListener("click", () => {
+//   data[botIndex++];
+//   if (botIndex > data.length - 1) botIndex = 0;
+
+//   updatePersonals();
+// });
+
+firstBot.addEventListener("click", () => {
+  data[(botIndex = 0)];
+
+  updatePersonals();
+  firstBot.classList.add("selected-bot");
+  if (secondBot.classList.contains("selected-bot"))
+    secondBot.classList.remove("selected-bot");
+});
+
+secondBot.addEventListener("click", () => {
+  data[(botIndex = 1)];
+
+  updatePersonals();
+  secondBot.classList.add("selected-bot");
+  if (firstBot.classList.contains("selected-bot"))
+    firstBot.classList.remove("selected-bot");
+});

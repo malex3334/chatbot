@@ -23,8 +23,8 @@
         <div class="chatbox">
           <!-- top menu -->
           <div id="first-section" class="topmenu flex-row">
-            <div class="topmenu__avatar"></div>
-            <div class="topmenu__name">Kazik Murowski</div>
+            <div id="avatar" class="topmenu__avatar"></div>
+            <div id="name" class="topmenu__name">Kazik Murowski</div>
             <div class="topmenu__menu">
               <ion-icon id="minmalizeBtn" name="remove-outline"> </ion-icon>
               <ion-icon id="closeBtn" name="close-outline"> </ion-icon>
@@ -50,6 +50,14 @@
             </button>
           </section>
         </div>
+
+        <section class="bots-select">
+          <!-- <div id="left" class="btn"><</div> -->
+          <img id="0" class="chat__avatar bot-switch" src="img/av1.jpg" />
+          <img id="1" class="chat__avatar bot-switch" src="img/Ojutek.jpg" />
+
+          <!-- <div id="right" class="btn">></div> -->
+        </section>
       </div>
     </main>
     <script
@@ -60,6 +68,6 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+    <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>
