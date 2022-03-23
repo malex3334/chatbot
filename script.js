@@ -38,9 +38,9 @@ const data = [
     avatar: "url(img/Ojutek.jpg)",
     chatavatar: "img/Ojutek.jpg",
     responsesArr: [
-      "Cesc! jak sie masz?",
-      `Mam się super! aj sobie śpie a TY?`,
-      "Fajowo! a kiedy przyjdzies?",
+      "Cześć! jak sie masz?",
+      `Mam się super! Ja sobie śpie a TY?`,
+      "Fajowo! a kiedy przyjdziesz?",
       "hurra! to ja czekam!",
       "hm hm hm hmmmmmm  &#9835; &#9834; &#9835;",
     ],
