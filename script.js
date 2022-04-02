@@ -68,15 +68,6 @@ function playType() {
   typeing.volume = 0.3;
 }
 
-// REPLIES LIST! TO EXTEND!
-const responsesArr = [
-  "Cześć! Co słychać?",
-  `U mnie ok, robię kurs JS. A Ty?`,
-  "Brzmi spoko! Co robisz w weekend?",
-  "Jestem na uczelni",
-  "Meuszę lecieć, trzymaj się!",
-];
-
 // INSERT OWN MSG
 const inserMsg = function () {
   // date
